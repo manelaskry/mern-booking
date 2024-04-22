@@ -1,20 +1,23 @@
 import {Link, Navigate} from "react-router-dom";
-import {useState} from "react";
+import {useContext,useState} from "react";
 import axios from "axios";
+import {UserContext} from "../UserContext.jsx";
 
 
 export default function LoginPage(){
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [redirect, setRedirect] = useState(false);
+  const {setUser} = useContext(UserContext);
+
 
 
   async function handleLoginSubmit(ev) {
     ev.preventDefault();
     try {
-      //const {data} = 
-      await axios.post('/api/auth/login', {username,password});
-      //setUser(data);
+      
+      const {data} = await axios.post('/api/auth/login', {username,password});
+      setUser(data);
       alert('Login successful');
       setRedirect(true);
     } catch (e) {
