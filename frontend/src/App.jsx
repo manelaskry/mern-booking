@@ -11,6 +11,7 @@ import RoomPages from "./pages/RoomPages.jsx";
 
 
 
+
 axios.defaults.baseURL = 'http://localhost:8800';
 axios.defaults.withCredentials = true;
 
@@ -26,9 +27,6 @@ function App(){
        <Route path="/account" element={<ProfilePage />} />
        <Route path="/account/bookings" element={<BookingsPage />} />
        <Route path="/RoomPages/:id" element={<RoomPages />} />
-
-
-       
 
 
       </Route>

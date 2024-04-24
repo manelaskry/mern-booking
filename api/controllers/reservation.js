@@ -47,6 +47,7 @@ export const createReservation = async (req, res, next) => {
         await reservation.populate('room').then(p=>console.log(p))
         .catch(error=>console.log(error));
         sendReservationConfirmationEmail(reservation.user.email, reservation);
+r
 
         res.status(200).json(reservation);
     });
@@ -120,7 +121,9 @@ export const getReservationById = async (req, res, next) => {
 
 
   // Delete a reservation by ID
+
 /*export const deleteReservation = async (req, res ,next) => {
+
     try {
       const reservation = await Reservation.findByIdAndDelete(req.params.id);
       if (!reservation) {
@@ -146,6 +149,7 @@ export const getReservationById = async (req, res, next) => {
     } catch (error) {
       next(err)
     }
+
   };*/
 
   export const deleteReservation = async (req,res,next)=>{
@@ -158,3 +162,5 @@ export const getReservationById = async (req, res, next) => {
         res.status(500).json(err);
     }
 }
+
+

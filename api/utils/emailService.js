@@ -11,7 +11,6 @@ const transporter = nodemailer.createTransport({
 
 // Fonction pour envoyer un e-mail de confirmation de réservation
 export const sendReservationConfirmationEmail = (recipient, reservationDetails) => {
-
     const mailOptions = {
         from: 'manelaskry@gmail.com',
         to: recipient,

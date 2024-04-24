@@ -28,7 +28,9 @@ export const login = async(req,res,next) => {
         const IsPasswordCorrect = bcrypt.compare( req.body.password , user.password);
         if (!IsPasswordCorrect) return next(createError(400,"password incorrect"));
 
+
         const token = jwt.sign({ id: user._id, isAdmin: user.isAdmin, username: user.username}, process.env.JWT)
+        
         
         const {password , isAdmin, ...otherDetails}= user._doc//This syntax is using object destructuring to extract specific properties from the user
        

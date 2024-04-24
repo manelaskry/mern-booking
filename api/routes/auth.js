@@ -10,12 +10,12 @@ router.post("/register", register);
 router.post("/login", login);
 
 
-router.post("/logout", (req, res) => {
-    
-    //res.clearCookie("access_token");
-    //res.status(200).json({ message: "You have been logged out" });
+router.post("/logout", verifyToken, (req, res) => {
+    // Supprimer le cookie contenant le token d'authentification
+    res.clearCookie("access_token");
 
-    res.cookie('token','').json(true);
+    // Répondre avec un message de déconnexion réussie
+    res.status(200).json({ message: "You have been logged out" });
 });
 
 export default router;

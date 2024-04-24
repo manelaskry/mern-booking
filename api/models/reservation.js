@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 const ReservationSchema = new mongoose.Schema(
+
   {
     room: {
       type: mongoose.Schema.Types.ObjectId,
@@ -27,6 +28,7 @@ const ReservationSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
+
 
 const Reservation = mongoose.model("Reservation", ReservationSchema);
 
